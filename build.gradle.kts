@@ -1,6 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
+  val kotlin_version by extra("1.4.30")
   repositories {
     google()
     mavenCentral()

@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="shift_id">ID: %1$s</string>
+    <string name="shift_start">Start: %1$s</string>
+    <string name="shift_end">End: %1$s</string>
+    <string name="shift_location">Location: %1$s, %2$s</string>
+
+</resources>

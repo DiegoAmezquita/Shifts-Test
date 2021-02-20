@@ -1,5 +1,6 @@
 plugins {
-  id("com.android.application")
+  id("com.android.library")
+  id("dagger.hilt.android.plugin")
   kotlin("android")
   kotlin("kapt")
 }
@@ -23,6 +24,12 @@ android {
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
+
+  buildFeatures {
+    dataBinding = true
+  }
+
+
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
@@ -31,12 +38,16 @@ android {
 
 dependencies {
 
+  kapt(AnnotationProcessors.hilt)
+
   implementation(Libraries.kotlinStdlib)
   implementation(Libraries.androidXCore)
   implementation(Libraries.appCompat)
   implementation(Libraries.material)
   implementation(Libraries.constraintLayout)
   implementation(Libraries.retrofit)
+
+  implementation(Libraries.hilt)
 
   testImplementation(Libraries.jUnit)
   testRuntimeOnly(Libraries.jUnitEngine)

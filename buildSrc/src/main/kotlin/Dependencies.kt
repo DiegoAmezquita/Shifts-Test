@@ -15,6 +15,7 @@ object Android {
 
 object Libraries {
   const val kotlinStdlib = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
+  const val multidex = "androidx.multidex:multidex:2.0.1"
   const val androidXCore = "androidx.core:core-ktx:1.3.2"
   const val appCompat = "androidx.appcompat:appcompat:1.2.0"
   const val material = "com.google.android.material:material:1.3.0"
