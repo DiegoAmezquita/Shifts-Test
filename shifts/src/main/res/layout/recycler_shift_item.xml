@@ -20,10 +20,10 @@
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="#000"
-            app:layout_constraintDimensionRatio="1:1"
             android:layout_marginEnd="@dimen/shift_item_spacing"
             android:layout_marginRight="@dimen/shift_item_spacing"
+            app:bindImage="@{shift.image}"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="@id/guideline_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
