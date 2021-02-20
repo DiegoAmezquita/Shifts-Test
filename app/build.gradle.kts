@@ -1,5 +1,7 @@
 plugins {
   id("com.android.application")
+  id("dagger.hilt.android.plugin")
+
   kotlin("android")
   kotlin("kapt")
 }
@@ -33,12 +35,16 @@ android {
 
 dependencies {
 
+  kapt(AnnotationProcessors.hilt)
+
   implementation(Libraries.kotlinStdlib)
   implementation(Libraries.androidXCore)
   implementation(Libraries.appCompat)
   implementation(Libraries.material)
   implementation(Libraries.constraintLayout)
   implementation(Libraries.retrofit)
+
+  implementation(Libraries.hilt)
 
   testImplementation(Libraries.jUnit)
   testRuntimeOnly(Libraries.jUnitEngine)
