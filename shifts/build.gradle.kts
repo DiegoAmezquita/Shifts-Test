@@ -46,6 +46,7 @@ dependencies {
   implementation(Libraries.material)
   implementation(Libraries.constraintLayout)
   implementation(Libraries.retrofit)
+  implementation(Libraries.coil)
 
   implementation(Libraries.hilt)
 

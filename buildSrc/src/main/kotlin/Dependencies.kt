@@ -21,6 +21,7 @@ object Libraries {
   const val material = "com.google.android.material:material:1.3.0"
   const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
   const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+  const val coil = "io.coil-kt:coil:1.1.1"
 
   const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
 
