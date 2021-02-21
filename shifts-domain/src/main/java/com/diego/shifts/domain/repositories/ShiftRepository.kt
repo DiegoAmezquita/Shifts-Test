@@ -1,21 +1,13 @@
 package com.diego.shifts.domain.repositories
 
-import com.diego.shifts.contract.Location
-import com.diego.shifts.domain.data.ShiftRequest
-import com.diego.shifts.domain.services.ShiftService
-import javax.inject.Inject
+import com.diego.core.data.Location
+import com.diego.shifts.domain.data.ShiftResponse
 
-class ShiftRepository @Inject constructor(private val service: ShiftService) {
+interface ShiftRepository {
 
-  suspend fun getShifts() = service.getShifts()
+  suspend fun getShifts(): List<ShiftResponse>
 
-  suspend fun startShift(time: String, location: Location): String {
-    val startShiftRequest = ShiftRequest(time, location.latitude, location.longitude)
-    return service.startShift(startShiftRequest)
-  }
+  suspend fun startShift(time: String, location: Location): String
 
-  suspend fun endShift(time: String, location: Location): String {
-    val startShiftRequest = ShiftRequest(time, location.latitude, location.longitude)
-    return service.endShift(startShiftRequest)
-  }
+  suspend fun endShift(time: String, location: Location): String
 }
