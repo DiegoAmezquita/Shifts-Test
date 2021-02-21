@@ -15,4 +15,14 @@ dependencies {
   implementation(Libraries.retrofitMoshi)
   implementation(Libraries.moshi)
   implementation(Libraries.javaInject)
+
+  testImplementation(Libraries.mockk)
+  testImplementation(Libraries.kotlinTest)
+  testImplementation(Libraries.kotlinTestJunit)
+  testImplementation(Libraries.jUnit)
+  testImplementation(Libraries.jUnitParams)
+  testImplementation(Libraries.kotlinCoroutinesTest)
+
+  testRuntimeOnly(Libraries.jUnitEngine)
+
 }

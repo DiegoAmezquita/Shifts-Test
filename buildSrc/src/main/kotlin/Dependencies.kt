@@ -28,6 +28,7 @@ object Libraries {
   const val androidXFragments = "androidx.fragment:fragment-ktx:1.3.0"
   const val androidXViewModels ="androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
   const val androidXLiveData ="androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
+  const val playServicesLocation ="com.google.android.gms:play-services-location:18.0.0"
 
   const val coil = "io.coil-kt:coil:1.1.1"
 
@@ -38,9 +39,11 @@ object Libraries {
   const val jUnit = "org.junit.jupiter:junit-jupiter-api:5.7.1"
   const val jUnitEngine = "org.junit.jupiter:junit-jupiter-engine:5.7.1"
   const val jUnitParams = "org.junit.jupiter:junit-jupiter-params:5.7.1"
+  const val mockk = "io.mockk:mockk:1.9.3"
 
-  const val androidXJUnit = "androidx.test.ext:junit:1.1.2"
-  const val espressoCore = "androidx.test.espresso:espresso-core:3.3.0"
+  const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:${Versions.kotlin}"
+  const val kotlinTestJunit = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.kotlin}"
+  const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2"
 }
 
 object AnnotationProcessors {
