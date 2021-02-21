@@ -12,5 +12,6 @@ dependencies {
   implementation(Libraries.kotlinStdlib)
   implementation(Libraries.retrofit)
   implementation(Libraries.retrofitMoshi)
+  implementation(Libraries.moshi)
   implementation(Libraries.javaInject)
 }
