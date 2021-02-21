@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.diego.core.PermissionException
+import com.diego.core.qualifiers.DispatcherIO
 import com.diego.shifts.contract.AsyncUseCase
 import com.diego.shifts.contract.EndShift
 import com.diego.shifts.contract.GetShifts
@@ -15,7 +16,7 @@ import com.diego.shifts.data.ShiftUiModel
 import com.diego.shifts.data.ShiftsUIModel
 import com.diego.shifts.others.MapShiftToUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +25,8 @@ class ShiftsViewModel @Inject constructor(
   @GetShifts private val getShiftsUseCase: AsyncUseCase<Unit, List<Shift>>,
   @StartShift private val startShiftUseCase: AsyncUseCase<Unit, String>,
   @EndShift private val endShiftUseCase: AsyncUseCase<Unit, String>,
-  @MapShiftToUiModel private val mapShiftToUiModelUseCase: UseCase<Shift, ShiftUiModel>
+  @MapShiftToUiModel private val mapShiftToUiModelUseCase: UseCase<Shift, ShiftUiModel>,
+  @DispatcherIO private val dispatcherIO: CoroutineDispatcher
 ) : ViewModel() {
 
   private val _data = MutableLiveData(ShiftsUIModel())
@@ -38,7 +40,7 @@ class ShiftsViewModel @Inject constructor(
   }
 
   private fun fetchData() {
-    viewModelScope.launch(Dispatchers.IO) {
+    viewModelScope.launch(dispatcherIO) {
       _data.postValue(_data.value?.copy(loading = true))
 
       val newValue = try {
@@ -53,7 +55,7 @@ class ShiftsViewModel @Inject constructor(
   }
 
   fun startShift() {
-    viewModelScope.launch(Dispatchers.IO) {
+    viewModelScope.launch(dispatcherIO) {
       try {
         _data.postValue(_data.value?.copy(loading = true))
         val message = startShiftUseCase.execute(Unit)
@@ -67,7 +69,7 @@ class ShiftsViewModel @Inject constructor(
   }
 
   fun endShift() {
-    viewModelScope.launch(Dispatchers.IO) {
+    viewModelScope.launch(dispatcherIO) {
       try {
         _data.postValue(_data.value?.copy(loading = true))
         val message = endShiftUseCase.execute(Unit)

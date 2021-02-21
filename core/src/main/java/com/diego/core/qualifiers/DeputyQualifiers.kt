@@ -7,3 +7,6 @@ annotation class GetLastKnownLocation
 
 @Qualifier
 annotation class GetFormattedDeviceTime
+
+@Qualifier
+annotation class DispatcherIO

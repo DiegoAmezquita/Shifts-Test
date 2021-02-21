@@ -29,6 +29,7 @@ object Libraries {
   const val androidXViewModels ="androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
   const val androidXLiveData ="androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
   const val playServicesLocation ="com.google.android.gms:play-services-location:18.0.0"
+  const val kotlinCoroutinesCore ="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.4.2"
 
   const val coil = "io.coil-kt:coil:1.1.1"
 

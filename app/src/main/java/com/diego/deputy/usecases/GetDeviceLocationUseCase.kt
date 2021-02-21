@@ -14,6 +14,7 @@ class GetDeviceLocationUseCase @Inject constructor(
 
   override suspend fun execute(input: Unit): Location {
     return suspendCoroutine { continuation ->
+      // Basic approach to get device location, not ideal
       fusedLocationClient.lastLocation.addOnSuccessListener {
         continuation.resume(Location(it.latitude.toString(), it.longitude.toString()))
       }.addOnFailureListener {

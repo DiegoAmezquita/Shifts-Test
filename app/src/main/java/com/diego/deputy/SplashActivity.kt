@@ -12,6 +12,7 @@ class SplashActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
+    // Splash is only to simulate long cold start
     startActivity(Intent(this, ShiftsActivity::class.java))
   }
 }

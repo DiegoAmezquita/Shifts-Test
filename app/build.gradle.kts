@@ -19,7 +19,11 @@ android {
     multiDexEnabled = true
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     resConfigs("es", "pt")
-    buildConfigField("String", "SERVER_URL", "\"https://apjoqdqpi3.execute-api.us-west-2.amazonaws.com/dmc\"")
+    buildConfigField(
+      "String",
+      "SERVER_URL",
+      "\"https://apjoqdqpi3.execute-api.us-west-2.amazonaws.com/dmc/\""
+    )
   }
 
   buildTypes {
@@ -51,6 +55,7 @@ dependencies {
   implementation(project(":shifts"))
   implementation(project(":shifts-domain"))
   implementation(project(":shifts-contracts"))
+  implementation(project(":core"))
 
   implementation(Libraries.multidex)
   implementation(Libraries.kotlinStdlib)
@@ -61,6 +66,9 @@ dependencies {
   implementation(Libraries.retrofit)
   implementation(Libraries.retrofitMoshi)
   implementation(Libraries.moshi)
+  implementation(Libraries.kotlinCoroutinesCore)
+
+  implementation(Libraries.playServicesLocation)
 
   implementation(Libraries.hilt)
 

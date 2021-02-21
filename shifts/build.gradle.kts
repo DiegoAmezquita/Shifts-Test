@@ -55,7 +55,9 @@ dependencies {
 
   implementation(Libraries.hilt)
 
+  testImplementation(Libraries.mockk)
+  testImplementation(Libraries.kotlinTest)
+  testImplementation(Libraries.kotlinTestJunit)
   testImplementation(Libraries.jUnit)
-  testRuntimeOnly(Libraries.jUnitEngine)
-  testImplementation(Libraries.jUnitParams)
+  testImplementation(Libraries.kotlinCoroutinesTest)
 }
