@@ -1,3 +1,4 @@
+include(":shifts-contracts")
 include(":shifts-domain")
 include(":shifts")
 include(":app")

@@ -30,6 +30,8 @@ object Libraries {
 
   const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
 
+  const val javaInject = "javax.inject:javax.inject:1"
+
   const val jUnit = "org.junit.jupiter:junit-jupiter-api:5.7.1"
   const val jUnitEngine = "org.junit.jupiter:junit-jupiter-engine:5.7.1"
   const val jUnitParams = "org.junit.jupiter:junit-jupiter-params:5.7.1"
