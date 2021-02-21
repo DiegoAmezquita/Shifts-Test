@@ -4,10 +4,13 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import coil.load
+import coil.request.CachePolicy
 
 @BindingAdapter("bindImage")
 fun ImageView.bindImage(imageUrl: String?) {
-  load(imageUrl)
+  load(imageUrl) {
+    memoryCachePolicy(CachePolicy.DISABLED)
+  }
 }
 
 @BindingAdapter("android:visibility")
