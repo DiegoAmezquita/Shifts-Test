@@ -21,5 +21,8 @@ class ShiftsActivity : AppCompatActivity() {
       this, R.layout.activity_shifts
     )
     setContentView(binding.root)
+
+    binding.viewModel = viewModel
+    binding.lifecycleOwner = this
   }
 }

@@ -23,12 +23,11 @@ class ShiftsRecyclerView @JvmOverloads constructor(
     layoutManager = LinearLayoutManager(context)
     addItemDecoration(DividerItemDecoration(context, VERTICAL))
     adapter = shiftsAdapter
+  }
 
-    shiftsAdapter.setShifts(
-      listOf(
-        ShiftUiModel("235", "", "", "", "", ""),
-        ShiftUiModel("", "", "", "", "", ""),
-      )
-    )
+  fun setShifts(shifts: List<ShiftUiModel>?) {
+    if (shifts != null) {
+      shiftsAdapter.setShifts(shifts)
+    }
   }
 }
