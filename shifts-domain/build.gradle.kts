@@ -8,6 +8,7 @@ dependencies {
   kapt(AnnotationProcessors.moshiCodegen)
 
   implementation(project(":shifts-contracts"))
+  implementation(project(":core"))
 
   implementation(Libraries.kotlinStdlib)
   implementation(Libraries.retrofit)

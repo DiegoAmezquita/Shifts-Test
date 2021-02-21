@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.diego.core.PermissionException
 import com.diego.shifts.contract.AsyncUseCase
 import com.diego.shifts.contract.EndShift
 import com.diego.shifts.contract.GetShifts
@@ -38,7 +39,7 @@ class ShiftsViewModel @Inject constructor(
 
   private fun fetchData() {
     viewModelScope.launch(Dispatchers.IO) {
-      _data.postValue(_data.value?.copy(loading = true) ?: ShiftsUIModel())
+      _data.postValue(_data.value?.copy(loading = true))
 
       val newValue = try {
         val shifts = getShiftsUseCase.execute(Unit).map { mapShiftToUiModelUseCase.execute(it) }
@@ -53,24 +54,44 @@ class ShiftsViewModel @Inject constructor(
 
   fun startShift() {
     viewModelScope.launch(Dispatchers.IO) {
-      _data.postValue(_data.value?.copy(loading = true) ?: ShiftsUIModel())
-      val message = startShiftUseCase.execute(Unit)
-      _news.postValue(ShiftNews.ShiftMessageNews(message))
-      fetchData()
+      try {
+        _data.postValue(_data.value?.copy(loading = true))
+        val message = startShiftUseCase.execute(Unit)
+        _news.postValue(ShiftNews.MessageNews(message))
+        fetchData()
+      } catch (e: Exception) {
+        handleException(e)
+        _data.postValue(_data.value?.copy(loading = false))
+      }
     }
   }
 
   fun endShift() {
     viewModelScope.launch(Dispatchers.IO) {
-      _data.postValue(_data.value?.copy(loading = true) ?: ShiftsUIModel())
-      val message = endShiftUseCase.execute(Unit)
-      _news.postValue(ShiftNews.ShiftMessageNews(message))
-      fetchData()
+      try {
+        _data.postValue(_data.value?.copy(loading = true))
+        val message = endShiftUseCase.execute(Unit)
+        _news.postValue(ShiftNews.MessageNews(message))
+        fetchData()
+      } catch (e: Exception) {
+        // Could be improved
+        handleException(e)
+        _data.postValue(_data.value?.copy(loading = false))
+      }
+    }
+  }
+
+  private fun handleException(exception: Exception) {
+    if (exception is PermissionException) {
+      _news.postValue(ShiftNews.RequestPermissionNews)
+    } else {
+      _news.postValue(ShiftNews.MessageNews(exception.message.orEmpty()))
     }
   }
 }
 
 
 sealed class ShiftNews {
-  data class ShiftMessageNews(val message: String) : ShiftNews()
+  data class MessageNews(val message: String) : ShiftNews()
+  object RequestPermissionNews : ShiftNews()
 }

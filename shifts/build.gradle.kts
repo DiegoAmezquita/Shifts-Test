@@ -40,6 +40,7 @@ dependencies {
   kapt(AnnotationProcessors.hilt)
 
   implementation(project(":shifts-contracts"))
+  implementation(project(":core"))
 
   implementation(Libraries.kotlinStdlib)
   implementation(Libraries.androidXCore)

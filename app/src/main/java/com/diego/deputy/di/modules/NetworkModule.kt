@@ -1,11 +1,13 @@
 package com.diego.deputy.di.modules
 
 import com.diego.deputy.BuildConfig
+import com.diego.deputy.other.AuthInterceptor
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -29,12 +31,20 @@ class NetworkModule {
 
   @Provides
   @Singleton
+  fun providesAuthInterceptor(): Interceptor {
+    return AuthInterceptor("8354336224c63279aadd00a9621757ef4fdf31fc  -")
+  }
+
+  @Provides
+  @Singleton
   fun providesOkHttpClient(
-    builder: OkHttpClient.Builder
+    builder: OkHttpClient.Builder,
+    interceptor: Interceptor
   ): OkHttpClient {
     val logging = HttpLoggingInterceptor()
     logging.setLevel(HttpLoggingInterceptor.Level.BODY)
     return builder
+      .addInterceptor(interceptor)
       .addInterceptor(logging)
       .build()
   }
