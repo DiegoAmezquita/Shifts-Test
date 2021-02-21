@@ -1,5 +1,7 @@
 package com.diego.shifts.contract
 
+import com.diego.core.data.Location
+
 data class Shift(
   val id: Int,
   val startDate: String,
@@ -7,9 +9,4 @@ data class Shift(
   val startLocation: Location,
   val endLocation: Location,
   val image: String
-)
-
-data class Location(
-  val latitude: String,
-  val longitude: String
 )

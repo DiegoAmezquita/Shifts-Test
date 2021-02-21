@@ -2,7 +2,7 @@ package com.diego.deputy.usecases
 
 import com.diego.core.PermissionException
 import com.diego.shifts.contract.AsyncUseCase
-import com.diego.shifts.contract.Location
+import com.diego.core.data.Location
 import com.google.android.gms.location.FusedLocationProviderClient
 import javax.inject.Inject
 import kotlin.coroutines.resume

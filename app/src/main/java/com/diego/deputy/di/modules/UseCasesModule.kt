@@ -8,7 +8,7 @@ import com.diego.deputy.usecases.GetFormattedDeviceTimeUseCase
 import com.diego.shifts.contract.AsyncUseCase
 import com.diego.shifts.contract.EndShift
 import com.diego.shifts.contract.GetShifts
-import com.diego.shifts.contract.Location
+import com.diego.core.data.Location
 import com.diego.shifts.contract.Shift
 import com.diego.shifts.contract.StartShift
 import com.diego.shifts.contract.UseCase

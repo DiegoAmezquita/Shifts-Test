@@ -1,6 +1,6 @@
 package com.diego.shifts.domain.usecases
 
-import com.diego.shifts.contract.Location
+import com.diego.core.data.Location
 import com.diego.shifts.contract.Shift
 import com.diego.shifts.contract.UseCase
 import com.diego.shifts.domain.data.ShiftResponse

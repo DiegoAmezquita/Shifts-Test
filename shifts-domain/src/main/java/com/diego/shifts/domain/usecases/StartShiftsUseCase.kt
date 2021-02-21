@@ -3,7 +3,7 @@ package com.diego.shifts.domain.usecases
 import com.diego.core.qualifiers.GetFormattedDeviceTime
 import com.diego.core.qualifiers.GetLastKnownLocation
 import com.diego.shifts.contract.AsyncUseCase
-import com.diego.shifts.contract.Location
+import com.diego.core.data.Location
 import com.diego.shifts.contract.UseCase
 import com.diego.shifts.domain.repositories.ShiftRepository
 import javax.inject.Inject
