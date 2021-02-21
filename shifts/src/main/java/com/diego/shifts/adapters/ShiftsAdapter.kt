@@ -11,6 +11,8 @@ import com.diego.shifts.databinding.RecyclerShiftItemBinding
 
 class ShiftsAdapter : RecyclerView.Adapter<ShiftsAdapter.ShiftViewHolder>() {
 
+  private val diffUtil = ShiftsDiffUtil()
+
   private val shifts = mutableListOf<ShiftUiModel>()
 
   fun setShifts(shifts: List<ShiftUiModel>) {
@@ -20,18 +22,7 @@ class ShiftsAdapter : RecyclerView.Adapter<ShiftsAdapter.ShiftViewHolder>() {
   }
 
   private fun notifyChanges(oldData: List<ShiftUiModel>, newData: List<ShiftUiModel>) {
-    val diff = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
-      override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldData[oldItemPosition].id == newData[newItemPosition].id
-      }
-
-      override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldData[oldItemPosition] == newData[newItemPosition]
-      }
-
-      override fun getOldListSize() = oldData.size
-      override fun getNewListSize() = newData.size
-    })
+    val diff = DiffUtil.calculateDiff(diffUtil.processChanges(oldData, newData))
     diff.dispatchUpdatesTo(this)
   }
 
@@ -57,4 +48,34 @@ class ShiftsAdapter : RecyclerView.Adapter<ShiftsAdapter.ShiftViewHolder>() {
       binding.shift = shift
     }
   }
+
+  class ShiftsDiffUtil : DiffUtil.Callback() {
+
+    private val oldData = mutableListOf<ShiftUiModel>()
+    private val newData = mutableListOf<ShiftUiModel>()
+
+    fun processChanges(
+      oldData: List<ShiftUiModel>,
+      newData: List<ShiftUiModel>
+    ): DiffUtil.Callback {
+      this.oldData.clear()
+      this.oldData.addAll(oldData)
+
+      this.newData.clear()
+      this.newData.addAll(newData)
+      return this
+    }
+
+    override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+      return oldData[oldItemPosition].id == newData[newItemPosition].id
+    }
+
+    override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+      return oldData[oldItemPosition] == newData[newItemPosition]
+    }
+
+    override fun getOldListSize() = oldData.size
+    override fun getNewListSize() = newData.size
+  }
 }
+
