@@ -4,3 +4,9 @@ import javax.inject.Qualifier
 
 @Qualifier
 annotation class GetShifts
+
+@Qualifier
+annotation class StartShift
+
+@Qualifier
+annotation class EndShift
