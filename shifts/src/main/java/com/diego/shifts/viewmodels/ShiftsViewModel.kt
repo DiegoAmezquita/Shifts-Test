@@ -53,6 +53,7 @@ class ShiftsViewModel @Inject constructor(
 
   fun startShift() {
     viewModelScope.launch(Dispatchers.IO) {
+      _data.postValue(_data.value?.copy(loading = true) ?: ShiftsUIModel())
       val message = startShiftUseCase.execute(Unit)
       _news.postValue(ShiftNews.ShiftMessageNews(message))
       fetchData()
@@ -61,6 +62,7 @@ class ShiftsViewModel @Inject constructor(
 
   fun endShift() {
     viewModelScope.launch(Dispatchers.IO) {
+      _data.postValue(_data.value?.copy(loading = true) ?: ShiftsUIModel())
       val message = endShiftUseCase.execute(Unit)
       _news.postValue(ShiftNews.ShiftMessageNews(message))
       fetchData()
