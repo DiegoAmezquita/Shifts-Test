@@ -1,3 +1,5 @@
+include(":core")
+include(":shared")
 include(":shifts-contracts")
 include(":shifts-domain")
 include(":shifts")
