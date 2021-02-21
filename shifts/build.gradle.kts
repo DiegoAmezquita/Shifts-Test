@@ -37,8 +37,9 @@ android {
 }
 
 dependencies {
-
   kapt(AnnotationProcessors.hilt)
+
+  implementation(project(":shifts-contracts"))
 
   implementation(Libraries.kotlinStdlib)
   implementation(Libraries.androidXCore)
@@ -49,6 +50,7 @@ dependencies {
   implementation(Libraries.coil)
   implementation(Libraries.androidXFragments)
   implementation(Libraries.androidXViewModels)
+  implementation(Libraries.androidXLiveData)
 
   implementation(Libraries.hilt)
 
