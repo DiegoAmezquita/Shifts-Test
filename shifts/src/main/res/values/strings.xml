@@ -5,4 +5,7 @@
     <string name="shift_end">End: %1$s</string>
     <string name="shift_location">Location: %1$s, %2$s</string>
 
+    <string name="shift_start_shift">Start Shift</string>
+    <string name="shift_end_shift">End Shift</string>
+
 </resources>
