@@ -1,10 +1,12 @@
 package com.diego.shifts
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.diego.shifts.databinding.ActivityShiftsBinding
+import com.diego.shifts.viewmodels.ShiftNews
 import com.diego.shifts.viewmodels.ShiftsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,5 +26,16 @@ class ShiftsActivity : AppCompatActivity() {
 
     binding.viewModel = viewModel
     binding.lifecycleOwner = this
+
+    observeViewModel()
+  }
+
+  private fun observeViewModel() {
+    viewModel.news.observe(this, {
+      when (it) {
+        is ShiftNews.ShiftMessageNews ->
+          Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+      }
+    })
   }
 }
