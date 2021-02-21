@@ -25,6 +25,8 @@ object Libraries {
   const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
   const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
   const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+  const val androidXFragments = "androidx.fragment:fragment-ktx:1.3.0"
+  const val androidXViewModels ="androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
 
   const val coil = "io.coil-kt:coil:1.1.1"
 

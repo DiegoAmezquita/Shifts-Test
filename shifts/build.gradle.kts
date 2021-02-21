@@ -47,6 +47,8 @@ dependencies {
   implementation(Libraries.constraintLayout)
   implementation(Libraries.retrofit)
   implementation(Libraries.coil)
+  implementation(Libraries.androidXFragments)
+  implementation(Libraries.androidXViewModels)
 
   implementation(Libraries.hilt)
 

@@ -1,13 +1,17 @@
 package com.diego.shifts
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.diego.shifts.databinding.ActivityShiftsBinding
+import com.diego.shifts.viewmodels.ShiftsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ShiftsActivity : AppCompatActivity() {
+
+  private val viewModel: ShiftsViewModel by viewModels()
 
   private lateinit var binding: ActivityShiftsBinding
 
