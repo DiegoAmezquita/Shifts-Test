@@ -5,5 +5,9 @@ plugins {
 }
 
 dependencies {
+  kapt(AnnotationProcessors.moshiCodegen)
+
   implementation(Libraries.kotlinStdlib)
+  implementation(Libraries.retrofit)
+  implementation(Libraries.retrofitMoshi)
 }

@@ -4,6 +4,8 @@ object Versions {
   const val kotlin = "1.4.30"
   const val jvmTarget = "1.8"
   const val hilt = "2.32-alpha"
+  const val retrofit = "2.9.0"
+  const val moshi = "1.11.0"
 }
 
 object Android {
@@ -20,7 +22,10 @@ object Libraries {
   const val appCompat = "androidx.appcompat:appcompat:1.2.0"
   const val material = "com.google.android.material:material:1.3.0"
   const val constraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
-  const val retrofit = "com.squareup.retrofit2:retrofit:2.9.0"
+  const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+  const val retrofitMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
+  const val moshi = "com.squareup.moshi:moshi-kotlin:${Versions.moshi}"
+
   const val coil = "io.coil-kt:coil:1.1.1"
 
   const val hilt = "com.google.dagger:hilt-android:${Versions.hilt}"
@@ -35,4 +40,5 @@ object Libraries {
 
 object AnnotationProcessors {
   const val hilt = "com.google.dagger:hilt-compiler:${Versions.hilt}"
+  const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshi}"
 }
