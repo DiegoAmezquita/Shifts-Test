@@ -58,5 +58,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/guideline" />
 
+        <include
+            layout="@layout/view_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.data.loading}" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

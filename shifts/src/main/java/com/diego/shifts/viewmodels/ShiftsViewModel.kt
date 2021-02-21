@@ -3,7 +3,6 @@ package com.diego.shifts.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.diego.shifts.contract.AsyncUseCase
 import com.diego.shifts.contract.EndShift
