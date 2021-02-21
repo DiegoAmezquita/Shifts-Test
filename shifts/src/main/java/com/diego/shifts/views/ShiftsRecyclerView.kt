@@ -14,10 +14,7 @@ class ShiftsRecyclerView @JvmOverloads constructor(
   defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
-  private val shiftsAdapter = ShiftsAdapter(object : ShiftsAdapter.OnClickListener {
-    override fun onShiftClick(shift: ShiftUiModel) {
-    }
-  })
+  private val shiftsAdapter = ShiftsAdapter()
 
   init {
     layoutManager = LinearLayoutManager(context)
